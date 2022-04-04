@@ -2,8 +2,8 @@
 
 Definitions :
 
-    The tested Erste bank account is the account of "Jiří Spokojený", a private person : ##"Account Owner"
-    The tested objective is the transactions between the "Account Owner" and Liftago, a Taxi & Delivery company : ##"Company"
+    The tested Erste bank account is the account of "Jiří Spokojený", a private person : #"Account Owner"
+    The tested objective is the transactions between the "Account Owner" and Liftago, a Taxi & Delivery company : #"Company"
 
 Automated Testing time: for example the automated tests should run every morning, at 6:00, before Erste open
 
