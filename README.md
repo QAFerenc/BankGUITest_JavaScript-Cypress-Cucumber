@@ -1,22 +1,42 @@
 # automated_bank_gui_test
 
-Definitions :
+This project contains Test Strategy and Automated Tests of a website. 
 
-    The tested Erste bank account is the account of "Jiří Spokojený", a private person : #"Account Owner"
-    The tested objective is the transactions between the "Account Owner" and Liftago, a Taxi & Delivery company : #"Company"
+This document (readme.md) contains the Test Strategy and the video links of the Automated Tests
 
-Automated Testing time: for example the automated tests should run every morning, at 6:00, before Erste open
+   Definitions :
 
+        "Account Owner" : Jiří Spokojený, a private person
+        "Company"       : Liftago, a Taxi & Delivery company
 
-Tests are divided to : 
+    The Automated test use the original Czech website. 
+    
+    This project (and the Test Strategy) assumes, that Automated and Manual tests are run at certain times. The project assumes Agile workflow with Sprints.
+    
+           For example : Automated Tests are run every morning at 6 AM
+           
+Test Strategy
 
-1. Manual Tests
+    Tests are divided to : 
 
-2. Automated Test
+1. Manual Tests   : tests those needed to be executed only rarely.
+ 
+2. Automated Test : tests those are executed frequently. They are described with Cucumber syntax below.
 
 
 1. Manual Tests : 
     1.1   Check that one transaction entry appears correctly on the screen, and texts and values for "Card number", "Original amount",..."Booking             reference" are displayed.
+
+    Test Steps : 1. Visit website https://george.csas.cz/?login_hint=7777777777 
+                 2. Login with pressing button "Přihlásit se"
+                 3. On the next screen press button "Zpráva přečtena", this navigates to the Main Page.
+                 4. Type "liftago" to Edit box "Co pro Vás mám najít?" and press Search button on the right side 
+                 5. Check the content of the first hit for the search
+             
+
+
+
+
     
 2. Automated Tests
     2.1  Automation of 1.1, for all the transaction entries
@@ -29,5 +49,3 @@ Tests are divided to :
     2.5  Automation for checking, that every time when "Liftago" is the sender, then the balance of "Jiří Spokojený" increases    
          Reason : it may happen, that "Liftago" is the sender, because for example "Jiří Spokojený" paid too much and there was an incorrect priceing, then and    
                   "Liftago" rewards him. 
-   
-    2.5  Automation for checking, that the co
