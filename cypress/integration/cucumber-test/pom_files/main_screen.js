@@ -47,7 +47,7 @@ class main_screen {
 
     checkTextIsDisplayed(text)
     {
-        
+        expect(cy.get('[class=g-status-info-title').contains(text))
     }
 
     customerReadsTransactions(texts)
