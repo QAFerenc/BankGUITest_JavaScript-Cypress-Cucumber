@@ -5,14 +5,14 @@ Test Strategy
 
     Tests are divided to : 
 
-1. Manual Tests   : tests those needed to be executed only rarely.
+1. Manual Tests   : tests those are needed to be executed only rarely, or when a quick test is needed
  
 2. Automated Test : tests those are executed frequently. They are described with Cucumber syntax below.
 
 
 1. Manual Tests : 
 
-    Smoke test : do not go into details, Automated Test will do it
+    Smoke tests : do not go into details, Automated Tests will do it
     
     1.1   Check that one transaction entry appears correctly on the screen, and texts and values for "Card number", "Original amount",..."Booking             reference" are displayed.
 
@@ -21,11 +21,16 @@ Test Strategy
                  2. Login with pressing button "Přihlásit se"
                  3. On the next screen press button "Zpráva přečtena", this navigates to the Main Page.
                  4. Type "liftago" to Edit box "Co pro Vás mám najít?" and press Search button on the right side 
-                 5. Check the content of the first hit for the search, and validate the texts such as Info, Poznámka, Priloha, etc.
-                     
+                 5. Check the content of the first hit for the search, and validate existence of the texts such as Info, Poznámka, Priloha, etc.
+     
              
 2. Automated Tests
+
     2.1  Automation of 1.1, for all the transaction entries
+
+    File : TransactionTest.feature
+
+    Note : the Transaction texts to test are all written in one in parameter "Texts", and will be processed in a loop in the code
 
 - Feature: Testing of Erste's website : transaction texts
 
@@ -45,17 +50,79 @@ Test Strategy
   -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20          |      Hledat    |   Platební symboly,Info,Poznámka,Příloha,Kategorie,Číslo karty,Poznámka,Místo |
   
 
+2.2. Automation of Transaction Amuounts
+      
+      It is tested, whether the amounds are in a given range
+      
+      Note : user can test it with Czech Krone or Euro. With this test 2 tests are executed : one for CZK test, the other is for EUR test
+      
+      File : TransactionValueTest.feature
+      
+-  Feature: Testing of Erste's website : transaction amount test
 
 
+  -  Scenario Outline: Testing of transaction amounts are within range
+     -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
+  -  And Customer clicks button with text as "<Login_button>"
+  -  And Customer clicks button with text as "<Confirmation_button>"
+  -  And Customer fills element as "String content" with name as "<Search_editbox>" with text as "<Company_name>"
+  -  And Customer clicks button with text as "<Amount_button>"
+  -  And Customer fills element as "String content" with name as "<Min_value_edit_box>" with text as "<Search_min_amount>"
+  -  And Customer fills element as "String content" with name as "<Max_value_edit_box>" with text as "<Search_max_amount>"
+  -  And Customer clicks button with text as "<Search_button>"
+  -  And Transaction history in Currency as "<Currency_1>" and value_1 as "<Min_Amount_Curr_1>" value_2 as "<Max_Amount_Curr_1>"
+  -  Then Transaction history in Currency as "<Currency_2>" and value_1 as "<Min_Amount_Curr_2>" value_2 as "<Max_Amount_Curr_2>"
+  -  Examples:
+  -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  | Search_min_amount |  Search_max_amount |  Search_button | Currency_1 |  Currency_2  |  Min_Amount_Curr_1  | Max_Amount_Curr_1 | Min_Amount_Curr_2  |  Max_Amount_Curr_2  |
+  -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20            | Hledat        |   EUR      |   CZK        |           0         |          220      |           0        |        10000        |
+      
+      
+ 3. Transaction Date Test
+
+    Note : When date "To" is earlier then date "From", transactions are still retrieved ->   possible Bug -> The test fill fail
+      
+-  File : DateRangeTest.feature  
+      
+-  Feature: Testing of Erste's website : transaction date test
+
+# This test will fail, because returns transactions even when transaction range is not valid
+
+    -  Scenario Outline: Testing of transaction amounts are within range
+      -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
+      -  And Customer clicks button with text as "<Login_button>"
+      -  And Customer clicks button with text as "<Confirmation_button>"
+      -  And Customer fills element as "String content" with name as "<Search_editbox>" with text as "<Company_name>"
+      -  And Customer clicks button with text as "<Datum>"
+      -  And Customer fills element as "Value content" with name as "<Start_date_edit_box>" with text as "<Start_date>"
+      -  And Customer fills element as "Value content" with name as "<End_date_edit_box>" with text as "<End_date>"
+      -  And Customer clicks button with text as "<Search_button>"
+      -  Then Customer should see text as "Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria."
+      -  Examples:
+      -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Datum        |  Start_date_edit_box |  End_date_edit_box  | Start_date         |  End_date       |  Search_button |   
+      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    1.1.2022        |    12.12.2021     |       Hledat   | 
+      
+         
+4. Testing with incorrect company name (not_existing_company)  -> Error message is tested, the test succeeds
+      
+      Note : this is a Negative test (error is expected)
+      
+      -  Scenario Outline: Testing of transaction amounts are within range
+      -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
+      -  And Customer clicks button with text as "<Login_button>"
+      -  And Customer clicks button with text as "<Confirmation_button>"
+      -  And Customer fills element as "String content" with name as "<Search_editbox>" with text as "<Company_name>"
+      -  And Customer clicks button with text as "<Datum>"
+      -  And Customer fills element as "Value content" with name as "<Start_date_edit_box>" with text as "<Start_date>"
+      -  And Customer fills element as "Value content" with name as "<End_date_edit_box>" with text as "<End_date>"
+      -  And Customer clicks button with text as "<Search_button>"
+      -  Then Customer should see text as "Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria."
+      -  Examples:
+      -  |Login_button |  Confirmation_button  | Search_editbox | Company_name         |  Datum        |  Start_date_edit_box |  End_date_edit_box  | Start_date         |  End_date       |  Search_button |   
+      -  |Přihlásit se |   Zpráva přečtena     |     Search     |not_existing_company  |  Datum        |       Start date     |          End date   |    1.1.2022        |    30.1.2022     |       Hledat   | 
+      
+      
+     
+      
 
 
-
-    4.2  Transaction date tests
-         2.2.1  Read 1 entry (the first) from Transactions. Save the date (date_1)
-                Make a search test with date range from date_1 to <earlier date>   : no data should be displayed
-         2.2.2  Make a search test for future "from" "to" date :  no data should be displayed
-    2.3  Automation for the check of the CZK-EUR conversion
-    2.4  Automation for checking, that every time when "Jiří Spokojený"  is the sender, then his balance decreases 
-    2.5  Automation for checking, that every time when "Liftago" is the sender, then the balance of "Jiří Spokojený" increases    
-         Reason : it may happen, that "Liftago" is the sender, because for example "Jiří Spokojený" paid too much and there was an incorrect priceing, then and    
-                  "Liftago" rewards him. 
+    
