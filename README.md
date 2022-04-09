@@ -13,6 +13,8 @@ Applied Test Strategy
      - Manual Tests   : tests those are needed to be executed only rarely, or when a quick and easy test is needed
  
      - Automated Test : tests those are executed frequently. They are described with Cucumber syntax below.
+     
+                        Video links of the Automated Tests are at the relevant sections below
 
 
 1. Manual Tests : 
