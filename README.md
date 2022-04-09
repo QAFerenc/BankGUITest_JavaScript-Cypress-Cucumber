@@ -98,8 +98,7 @@ Applied Test Strategy
       
       -  Feature: Testing of Erste's website with different date ranges
 
-      -  Scenario Outline: Testing of transaction amounts are within incorrect date range
-      
+      -  Scenario Outline: Testing of transaction amounts are within incorrect date range      
       -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
       -  And Customer clicks button with text as "<Login_button>"
       -  And Customer clicks button with text as "<Confirmation_button>"
@@ -118,10 +117,10 @@ Applied Test Strategy
       
       Note : this is a Negative test (error is expected)
       
-      -  Scenario Outline: Testing of transaction with a not existing company
-          
-      -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
+      -  Feature  : User would like to query the transactions related to a non existing company
       
+      -  Scenario Outline: Testing of transaction with a not existing company          
+      -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"      
       -  And Customer clicks button with text as "<Login_button>"
       -  And Customer clicks button with text as "<Confirmation_button>"
       -  And Customer fills element as "String content" with name as "<Search_editbox>" with text as "<Company_name>"
