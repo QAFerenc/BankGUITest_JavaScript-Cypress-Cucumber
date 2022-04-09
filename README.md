@@ -17,11 +17,11 @@ Test Strategy
     1.1   Check that one transaction entry appears correctly on the screen, and texts and values for "Card number", "Original amount",..."Booking             reference" are displayed.
 
     Test Steps : 
-           -      1. Visit website https://george.csas.cz/?login_hint=7777777777 
-           -      2. Login with pressing button "Přihlásit se"
-           -      3. On the next screen press button "Zpráva přečtena", this navigates to the Main Page.
-           -      4. Type "liftago" to Edit box "Co pro Vás mám najít?" and press Search button on the right side 
-           -      5. Check the content of the first hit for the search, and validate existence of the texts such as Info, Poznámka, Priloha, etc.
+           -  Visit website https://george.csas.cz/?login_hint=7777777777 
+           -  Login with pressing button "Přihlásit se"
+           -  On the next screen press button "Zpráva přečtena", this navigates to the Main Page.
+           -  Type "liftago" to Edit box "Co pro Vás mám najít?" and press Search button on the right side 
+           -  Check the content of the first hit for the search, and validate existence of the texts such as Info, Poznámka, Priloha, etc.
      
              
 2. Automated Tests
@@ -88,7 +88,7 @@ Test Strategy
       
     -  Feature: Testing of Erste's website : transaction date test
 
-# This test will fail, because returns transactions even when transaction range is not valid
+** This test will fail, because returns transactions even when transaction range is not valid
 
     -  Scenario Outline: Testing of transaction amounts are within range
       
