@@ -1,4 +1,4 @@
-Enviromnent :
+Enviromnent 
 
     Operating System : Windows 10
     Technology : Javascript
@@ -32,7 +32,7 @@ Applied Test Strategy
                  
 2. Automated Tests
 
-    2.1  Automation of 1.1, for all the transaction entries
+2.1  Automation of 1.1, for all the transaction entries
 
     File : TransactionTest.feature
 
