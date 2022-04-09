@@ -114,7 +114,7 @@ Applied Test Strategy
       -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    1.1.2022        |    12.12.2021     |       Hledat   | 
       -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    5.5.2022        |    10.5.2022     |       Hledat   | 
          
-2.4 Testing with incorrect company name (not_existing_company)  -> Error message is tested, the test succeeds
+2.4 Testing with incorrect company name (not_existing_company)  -> Error message is displayed, the test succeeds
       
       Note : this is a Negative test (error is expected)
       
