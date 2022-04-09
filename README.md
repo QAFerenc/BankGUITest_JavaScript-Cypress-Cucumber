@@ -1,7 +1,7 @@
 # automated_bank_gui_test
 
       
-Test Strategy
+Applied Test Strategy
 
     Tests are divided to : 
 
@@ -33,7 +33,7 @@ Test Strategy
 
     - Feature: Testing of Erste's website : transaction texts
 
-    - Scenario Outline: Testing of transaction amounts are within range
+    - Scenario Outline: Testing of transaction texts
       
     -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
     -  And Customer clicks button with text as "<Login_button>"
@@ -49,13 +49,15 @@ Test Strategy
      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20          |      Hledat    |   Platební symboly,Info,Poznámka,Příloha,Kategorie,Číslo karty,Poznámka,Místo |
   
 
-2.2. Automation of Transaction Amuounts
+2.2. Automation of testing Transaction Amuounts
       
-      It is tested, whether the amounds are in a given range
+      It is tested, whether the amounts are in a given range
       
-      Note : user can test it with Czech Krone or Euro. 
+      Note : user can test it with Czech Krone (CZK) or Euro (EUR). 
       
              With this test 2 tests are executed : one for CZK test, the other is for EUR test
+      
+             It is possible to create 2 different tests for EUR and CZK, but they are on the same page : it is quicker to test them together
       
       File : TransactionValueTest.feature
       
@@ -81,15 +83,15 @@ Test Strategy
 
     Note : When date "To" is earlier then date "From", transactions are still retrieved ->   possible Bug -> The test fill fail
       
-           2 Tests are described in Scenario Outline ->   The test runs 2 times
+           2 Tests are described in Examples ->   The test runs 2 times
 
            ** This test will fail, because returns transactions even when transaction range is not valid
       
       -  File : DateRangeTest.feature  
       
-      -  Feature: Testing of Erste's website : transaction date test
+      -  Feature: Testing of Erste's website with different date ranges
 
-      -  Scenario Outline: Testing of transaction amounts are within range
+      -  Scenario Outline: Testing of transaction amounts are within incorrect date range
       
       -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
       -  And Customer clicks button with text as "<Login_button>"
@@ -109,7 +111,7 @@ Test Strategy
       
       Note : this is a Negative test (error is expected)
       
-      -  Scenario Outline: Testing of transaction amounts are within range
+      -  Scenario Outline: Testing of transaction with a not existing company
           
       -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
       
