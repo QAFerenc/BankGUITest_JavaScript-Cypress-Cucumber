@@ -14,7 +14,7 @@ Applied Test Strategy
  
      - Automated Test : tests those are executed frequently. They are described with Cucumber syntax below.
      
-                        Video links of the Automated Tests are at the relevant sections below
+                        Video links of the Automated Tests are given at the relevant Automated Tests sections below
 
 
 1. Manual Tests : 
