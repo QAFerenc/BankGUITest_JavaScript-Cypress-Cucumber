@@ -47,7 +47,7 @@ class main_screen {
 
     checkTextIsDisplayed(text)
     {
-        expect(cy.get('[class=g-status-info-title').contains(text))
+        expect(cy.get('[class=g-status-info-title',{ timeout: 12000}).contains(text))
     }
 
     customerReadsTransactions(texts)

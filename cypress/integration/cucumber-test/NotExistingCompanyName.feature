@@ -14,5 +14,4 @@ Scenario Outline: Testing of transaction amounts are within range
   Then Customer should see text as "Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria."
   Examples:
   |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Datum        |  Start_date_edit_box |  End_date_edit_box  | Start_date         |  End_date       |  Search_button |   
-  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    1.1.2022        |    12.12.2021     |       Hledat   | 
-  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    5.5.2022        |    10.5.2022     |       Hledat   | 
+  |Přihlásit se |   Zpráva přečtena     |     Search     |     not_existin_Company  |  Datum        |       Start date     |          End date   |    1.1.2022        |    11.11.2022     |       Hledat   | 
