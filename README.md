@@ -79,7 +79,7 @@ Applied Test Strategy
       -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20            | Hledat        |   EUR      |   CZK        |           0         |          220      |           0        |        10000        |
       
       
- 3. Transaction Date Test
+ 2.3 Transaction Date Test
 
     Note : When date "To" is earlier then date "From", transactions are still retrieved ->   possible Bug -> The test fill fail
       
@@ -107,7 +107,7 @@ Applied Test Strategy
       -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    1.1.2022        |    12.12.2021     |       Hledat   | 
       -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    5.5.2022        |    10.5.2022     |       Hledat   | 
          
-4. Testing with incorrect company name (not_existing_company)  -> Error message is tested, the test succeeds
+2.4 Testing with incorrect company name (not_existing_company)  -> Error message is tested, the test succeeds
       
       Note : this is a Negative test (error is expected)
       
