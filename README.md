@@ -31,9 +31,9 @@ Applied Test Strategy
 
     Note : the Transaction texts to/under test are all written in one in parameter "Texts", and will be processed in a loop in the code
 
-    - Feature: Testing of Erste's website : transaction texts
+    -  Feature: Testing of Erste's website : transaction texts
 
-    - Scenario Outline: Testing of transaction texts
+    -  Scenario Outline: Testing of transaction texts
       
     -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
     -  And Customer clicks button with text as "<Login_button>"
