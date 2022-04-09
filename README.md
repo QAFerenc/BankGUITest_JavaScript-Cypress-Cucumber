@@ -1,4 +1,9 @@
-# automated_bank_gui_test
+#Enviromnent :
+
+    Operating System : Windows 10
+    Technology : Javascript
+    Framework  : cypress-cucumber-preporcessor
+    
 
       
 Applied Test Strategy
