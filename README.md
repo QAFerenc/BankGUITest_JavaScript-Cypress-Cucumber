@@ -17,13 +17,12 @@ Test Strategy
     1.1   Check that one transaction entry appears correctly on the screen, and texts and values for "Card number", "Original amount",..."Booking             reference" are displayed.
 
     Test Steps : 
-           -  Visit website https://george.csas.cz/?login_hint=7777777777 
-           -  Login with pressing button "Přihlásit se"
-           -  On the next screen press button "Zpráva přečtena", this navigates to the Main Page.
-           -  Type "liftago" to Edit box "Co pro Vás mám najít?" and press Search button on the right side 
-           -  Check the content of the first hit for the search, and validate existence of the texts such as Info, Poznámka, Priloha, etc.
-     
-             
+    -  Visit website https://george.csas.cz/?login_hint=7777777777 
+    -  Login with pressing button "Přihlásit se"
+    -  On the next screen press button "Zpráva přečtena", this navigates to the Main Page.
+    -  Type "liftago" to Edit box "Co pro Vás mám najít?" and press Search button on the right side 
+    -  Check the content of the first hit for the search, and validate existence of the texts such as Info, Poznámka, Priloha, etc.
+                 
 2. Automated Tests
 
     2.1  Automation of 1.1, for all the transaction entries
@@ -37,16 +36,16 @@ Test Strategy
     - Scenario Outline: Testing of transaction amounts are within range
       
     - Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
-   -  And Customer clicks button with text as "<Login_button>"
-   -  And Customer clicks button with text as "<Confirmation_button>"
-   -  And Customer fills element as "String content" with name as "<Search_editbox>" with text as "<Company_name>"
-   -  And Customer clicks button with text as "<Amount_button>"
-   -  And Customer fills element as "String content" with name as "<Min_value_edit_box>" with text as "<Search_min_amount>"
-   -  And Customer fills element as "String content" with name as "<Max_value_edit_box>" with text as "<Search_max_amoumt>"
-   -  And Customer clicks button with text as "<Search_button>"
-   -  Then Customer check the transaction texts as "<Texts>"
-   -  Examples:
-     -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  | Search_min_amount |  Search_max_amount |  Search_button |                             Texts                                                   |
+    -  And Customer clicks button with text as "<Login_button>"
+    -  And Customer clicks button with text as "<Confirmation_button>"
+    -  And Customer fills element as "String content" with name as "<Search_editbox>" with text as "<Company_name>"
+    -  And Customer clicks button with text as "<Amount_button>"
+    -  And Customer fills element as "String content" with name as "<Min_value_edit_box>" with text as "<Search_min_amount>"
+    -  And Customer fills element as "String content" with name as "<Max_value_edit_box>" with text as "<Search_max_amoumt>"
+    -  And Customer clicks button with text as "<Search_button>"
+    -  Then Customer check the transaction texts as "<Texts>"
+    -  Examples:
+    -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  | Search_min_amount |  Search_max_amount |  Search_button |                             Texts                                                   |
      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20          |      Hledat    |   Platební symboly,Info,Poznámka,Příloha,Kategorie,Číslo karty,Poznámka,Místo |
   
 
@@ -60,22 +59,22 @@ Test Strategy
       
       File : TransactionValueTest.feature
       
-  -  Feature: Testing of Erste's website : transaction amount test
+      -  Feature: Testing of Erste's website : transaction amount test
 
-  -  Scenario Outline: Testing of transaction amounts are within range
-  -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
-  -  And Customer clicks button with text as "<Login_button>"
-  -  And Customer clicks button with text as "<Confirmation_button>"
-  -  And Customer fills element as "String content" with name as "<Search_editbox>" with text as "<Company_name>"
-  -  And Customer clicks button with text as "<Amount_button>"
-  -  And Customer fills element as "String content" with name as "<Min_value_edit_box>" with text as "<Search_min_amount>"
-  -  And Customer fills element as "String content" with name as "<Max_value_edit_box>" with text as "<Search_max_amount>"
-  -  And Customer clicks button with text as "<Search_button>"
-  -  And Transaction history in Currency as "<Currency_1>" and value_1 as "<Min_Amount_Curr_1>" value_2 as "<Max_Amount_Curr_1>"
-  -  Then Transaction history in Currency as "<Currency_2>" and value_1 as "<Min_Amount_Curr_2>" value_2 as "<Max_Amount_Curr_2>"
-  -  Examples:
-     -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  | Search_min_amount |  Search_max_amount |  Search_button | Currency_1 |  Currency_2  |  Min_Amount_Curr_1  | Max_Amount_Curr_1 | Min_Amount_Curr_2  |  Max_Amount_Curr_2  |
-     -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20            | Hledat        |   EUR      |   CZK        |           0         |          220      |           0        |        10000        |
+      -  Scenario Outline: Testing of transaction amounts are within range
+      -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
+      -  And Customer clicks button with text as "<Login_button>"
+      -  And Customer clicks button with text as "<Confirmation_button>"
+      -  And Customer fills element as "String content" with name as "<Search_editbox>" with text as "<Company_name>"
+      -  And Customer clicks button with text as "<Amount_button>"
+      -  And Customer fills element as "String content" with name as "<Min_value_edit_box>" with text as "<Search_min_amount>"
+      -  And Customer fills element as "String content" with name as "<Max_value_edit_box>" with text as "<Search_max_amount>"
+      -  And Customer clicks button with text as "<Search_button>"
+      -  And Transaction history in Currency as "<Currency_1>" and value_1 as "<Min_Amount_Curr_1>" value_2 as "<Max_Amount_Curr_1>"
+      -  Then Transaction history in Currency as "<Currency_2>" and value_1 as "<Min_Amount_Curr_2>" value_2 as "<Max_Amount_Curr_2>"
+      -  Examples:
+      -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  | Search_min_amount |  Search_max_amount |  Search_button | Currency_1 |  Currency_2  |  Min_Amount_Curr_1  | Max_Amount_Curr_1 | Min_Amount_Curr_2  |  Max_Amount_Curr_2  |
+      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20            | Hledat        |   EUR      |   CZK        |           0         |          220      |           0        |        10000        |
       
       
  3. Transaction Date Test
@@ -86,7 +85,7 @@ Test Strategy
       
 -  File : DateRangeTest.feature  
       
-    -  Feature: Testing of Erste's website : transaction date test
+      -  Feature: Testing of Erste's website : transaction date test
 
 ** This test will fail, because returns transactions even when transaction range is not valid
 
