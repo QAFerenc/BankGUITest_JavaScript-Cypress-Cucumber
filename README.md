@@ -26,13 +26,13 @@ Applied Test Strategy
     Test Steps : 
     -  Visit website https://george.csas.cz/?login_hint=7777777777 
     -  Login with pressing button "Přihlásit se"
-    -  On the next screen press button "Zpráva přečtena", this navigates to the Main Page.
+    -  On the next screen press button "Zpráva přečtena"
     -  Type "liftago" to Edit box "Co pro Vás mám najít?" and press Search button on the right side 
     -  Check the content of the first hit for the search, and validate existence of the texts such as Info, Poznámka, Priloha, etc.
                  
 2. Automated Tests
 
-2.1  Automation of 1.1, for all the transaction entries
+2.1  Automation of 1.1 (transaction texts), for all the transaction entries
 
     File : TransactionTest.feature
 
