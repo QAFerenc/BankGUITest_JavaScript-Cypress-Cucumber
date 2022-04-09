@@ -25,6 +25,9 @@ Test Strategy
 
 
 1. Manual Tests : 
+
+    Smoke test : do not go into details, Automated Test will do it
+    
     1.1   Check that one transaction entry appears correctly on the screen, and texts and values for "Card number", "Original amount",..."Booking             reference" are displayed.
 
     Test Steps : 
@@ -35,14 +38,33 @@ Test Strategy
                  5. Check the content of the first hit for the search, and validate the texts such as Info, Poznámka, Priloha, etc.
                      
              
-
-
-
-
-    
 2. Automated Tests
     2.1  Automation of 1.1, for all the transaction entries
-    2.2  Transaction date tests
+
+     Feature: Testing of Erste's website : transaction texts
+
+
+Scenario Outline: Testing of transaction amounts are within range
+  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
+  And Customer clicks button with text as "<Login_button>"
+  And Customer clicks button with text as "<Confirmation_button>"
+  And Customer fills element as "String content" with name as "<Search_editbox>" with text as "<Company_name>"
+  And Customer clicks button with text as "<Amount_button>"
+  And Customer fills element as "String content" with name as "<Min_value_edit_box>" with text as "<Search_min_amount>"
+  And Customer fills element as "String content" with name as "<Max_value_edit_box>" with text as "<Search_max_amoumt>"
+  And Customer clicks button with text as "<Search_button>"
+  Then Customer check the transaction texts as "<Texts>"
+  Examples:
+  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  | Search_min_amount |  Search_max_amount |  Search_button |                             Texts                                                   |
+  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20          |      Hledat    |   Platební symboly,Info,Poznámka,Příloha,Kategorie,Číslo karty,Poznámka,Místo |
+  
+
+
+
+
+
+
+    4.2  Transaction date tests
          2.2.1  Read 1 entry (the first) from Transactions. Save the date (date_1)
                 Make a search test with date range from date_1 to <earlier date>   : no data should be displayed
          2.2.2  Make a search test for future "from" "to" date :  no data should be displayed
