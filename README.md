@@ -5,7 +5,7 @@ Test Strategy
 
     Tests are divided to : 
 
-1. Manual Tests   : tests those are needed to be executed only rarely, or when a quick test is needed
+1. Manual Tests   : tests those are needed to be executed only rarely, or when a quick and easy test is needed
  
 2. Automated Test : tests those are executed frequently. They are described with Cucumber syntax below.
 
