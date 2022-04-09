@@ -34,7 +34,7 @@ Applied Test Strategy
 
 2.1  Automated Testing of 1.1 (transaction texts), for all the transaction entries
 
-    File : TransactionTest.feature
+    File : cypress\integration\cucumber-test\TransactionTest.feature
 
     Note : the Transaction texts to/under test are all written in one in parameter "Texts", and will be processed in a loop in the code
 
@@ -55,19 +55,18 @@ Applied Test Strategy
     -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  | Search_min_amount |  Search_max_amount |  Search_button |                             Texts                                                   |
      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20          |      Hledat    |   Platební symboly,Info,Poznámka,Příloha,Kategorie,Číslo karty,Poznámka,Místo |
    
-
+   
 2.2. Automated Testing of Transaction Amuounts
       
       It is tested, whether the amounts are in a given range
       
-      Note : user can test it with Czech Krone (CZK) or Euro (EUR). 
+      File : cypress\integration\cucumber-test\TransactionValueTest.feature
       
+      Note : user can test it with Czech Krone (CZK) or Euro       
              With this test 2 tests are executed : one for CZK test, the other is for EUR test
       
              It is possible to create 2 different tests for EUR and CZK, but they are on the same page : it is quicker to test them together
-      
-      File : TransactionValueTest.feature
-      
+            
       -  Feature: Testing of Erste's website : transaction amount test
 
       -  Scenario Outline: Testing of transaction amounts are within range
@@ -88,14 +87,14 @@ Applied Test Strategy
       
       
  2.3 Automated Testing of Transaction Date
+ 
+    File : cypress\integration\cucumber-test\DateRangeTest.feature
 
     Note : When date "To" is earlier then date "From", transactions are still retrieved ->   possible Bug -> The test fill fail
       
            2 Tests are described in Examples ->   The test runs 2 times
 
-           ** This test will fail, because returns transactions even when transaction range is not valid
-      
-      -  File : DateRangeTest.feature  
+           ** This test will fail, because returns transactions even when transaction range is not valid              
       
       -  Feature: Testing of Erste's website with different date ranges
 
@@ -116,6 +115,8 @@ Applied Test Strategy
       -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    5.5.2022        |    10.5.2022     |       Hledat   | 
          
 2.4 Automated Testing of incorrect company name (not_existing_company)  
+
+      File : cypress\integration\cucumber-test\NotExistingCompanyName.feature
       
       Note : this is a Negative test (error is expected) -> Error message is displayed, the test succeeds
       
