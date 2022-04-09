@@ -71,6 +71,7 @@ Applied Test Strategy
       -  Feature: Testing of Erste's website : transaction amount test
 
       -  Scenario Outline: Testing of transaction amounts are within range
+      
       -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
       -  And Customer clicks button with text as "<Login_button>"
       -  And Customer clicks button with text as "<Confirmation_button>"
@@ -99,6 +100,7 @@ Applied Test Strategy
       -  Feature: Testing of Erste's website with different date ranges
 
       -  Scenario Outline: Testing of transaction amounts are within incorrect date range      
+      
       -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
       -  And Customer clicks button with text as "<Login_button>"
       -  And Customer clicks button with text as "<Confirmation_button>"
@@ -120,6 +122,7 @@ Applied Test Strategy
       -  Feature  : User would like to query the transactions related to a non existing company
       
       -  Scenario Outline: Testing of transaction with a not existing company          
+      
       -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"      
       -  And Customer clicks button with text as "<Login_button>"
       -  And Customer clicks button with text as "<Confirmation_button>"
