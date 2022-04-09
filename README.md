@@ -32,7 +32,7 @@ Applied Test Strategy
                  
 2. Automated Tests
 
-2.1  Automation of 1.1 (transaction texts), for all the transaction entries
+2.1  Automated Testing of 1.1 (transaction texts), for all the transaction entries
 
     File : TransactionTest.feature
 
@@ -56,7 +56,7 @@ Applied Test Strategy
      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20          |      Hledat    |   Platební symboly,Info,Poznámka,Příloha,Kategorie,Číslo karty,Poznámka,Místo |
    
 
-2.2. Automation of testing Transaction Amuounts
+2.2. Automated Testing of Transaction Amuounts
       
       It is tested, whether the amounts are in a given range
       
@@ -87,7 +87,7 @@ Applied Test Strategy
       -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20            | Hledat        |   EUR      |   CZK        |           0         |          220      |           0        |        10000        |
       
       
- 2.3 Transaction Date Test
+ 2.3 Automated Testing of Transaction Date
 
     Note : When date "To" is earlier then date "From", transactions are still retrieved ->   possible Bug -> The test fill fail
       
@@ -115,9 +115,9 @@ Applied Test Strategy
       -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    1.1.2022        |    12.12.2021     |       Hledat   | 
       -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    5.5.2022        |    10.5.2022     |       Hledat   | 
          
-2.4 Testing with incorrect company name (not_existing_company)  -> Error message is displayed, the test succeeds
+2.4 Automated Testing of incorrect company name (not_existing_company)  
       
-      Note : this is a Negative test (error is expected)
+      Note : this is a Negative test (error is expected) -> Error message is displayed, the test succeeds
       
       -  Feature  : User would like to query the transactions related to a non existing company
       
