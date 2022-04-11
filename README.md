@@ -148,7 +148,7 @@ Applied Test Strategy
       -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |       Max value      |       Hledat    |   CZK         -  |           1000        |          10       |  Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria. |
       
       
- 2.3 Automated Testing of Transaction Date
+ 2.3 Automated Testing of Invalid Transaction Date Range
  
     File : cypress\integration\cucumber-test\DateRangeTest.feature
     
