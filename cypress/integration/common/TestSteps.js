@@ -42,6 +42,6 @@ Then('Customer should see text as {string}',(text)=> {
 
 Then('Customer check the transaction texts as {string}',(texts)=>{
     mainScreen.customerReadsTransactions(texts)
-})
+}) 
 
 
