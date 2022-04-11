@@ -21,7 +21,7 @@ Applied Test Strategy
 
     Smoke tests are preferred : do not go into details, Automated Tests will do it
     
-    General steps at every tests (actual testing starts after these step):
+    General steps at every tests (actual testing starts after these steps):
    
     -  Visit website https://george.csas.cz/?login_hint=7777777777 
     -  Login with pressing button "Přihlásit se"
@@ -39,14 +39,13 @@ Applied Test Strategy
             After pressing button "Date"
                 - "Date from" is on the screen
                 - "Date to" is on the screen
-               
-    
+                   
     1.2   Check that one transaction entry appears correctly on the screen, and texts and values for "Card number", "Original amount",..."Booking             reference" are displayed.
 
+    1.3  Search results for specific Date and Amount is rather better beeing Automated
     
-    -  Check the content of the first hit for the search, and validate existence of the texts such as Info, Poznámka, Priloha, etc.
-    -  
-                 
+    1.4  Testing the CZK-EUR conversion for one entry of the search results
+                       
 2. Automated Tests
 
    Running of the Automated tests : npx cypress run --spec cypress/integration/cucumber-test/<test_file_name> --headed --browser=chrome
