@@ -48,8 +48,8 @@ Applied Test Strategy
 
     1.5  Important to check not only when "Card Owner" (Jiří Spokojený) pays, but when "Liftago" is the sender. This can happen, when "Liftago" sends money for the "Account Owner"
 
-         1.5.1  Jiří Spokojený  ->   Liftago           : money amount is decucted from Jiří Spokojený. Balance decreases. Transaction amount should be marked with "+"
-         1.5.2  Liftago         ->   Jiří Spokojený    : Jiří Spokojený gets money from Liftago. Balance increases. Transaction amount should be marked with "-"
+         1.5.1  Jiří Spokojený  ->   Liftago           : money amount is decucted from Jiří Spokojený. Balance decreases. Transaction amount should be marked with "-"
+         1.5.2  Liftago         ->   Jiří Spokojený    : Jiří Spokojený gets money from Liftago. Balance increases. Transaction amount should be marked with "+"
                        
 2. Automated Tests
 
