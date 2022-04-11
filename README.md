@@ -64,7 +64,7 @@ Applied Test Strategy
     
     Note : the Transaction texts to/under test are all written in one parameter "Texts", and are processed in a loop in the code
 
-    -  Feature: Testing of Erste's website : transaction texts
+    -  Feature:  Transaction texts test
 
     -  Scenario Outline: Testing of transaction texts
       
@@ -78,8 +78,9 @@ Applied Test Strategy
     -  And Customer clicks button with text as "<Search_button>"
     -  Then Customer check the transaction texts as "<Texts>"
     -  Examples:
-    -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  | Search_min_amount |  Search_max_amount |  Search_button |                             Texts                                                   |
-     -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20          |      Hledat    |   Platební symboly,Info,Poznámka,Příloha,Kategorie,Číslo karty,Poznámka,Místo |
+    -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  | Search_min_amount |   
+    -  Search_max_amount |  Search_button |                             Texts                                                   |
+    -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |             -  20          |      Hledat    |   Platební symboly,Info,Poznámka,Příloha,Kategorie,Číslo karty,Poznámka,Místo |
    
    
 2.2. Automated Testing of Transaction Amuounts
@@ -106,14 +107,15 @@ Applied Test Strategy
       -  And Customer clicks button with text as "<Confirmation_button>"
       -  And Customer fills element as "String content" with name as "<Search_editbox>" with text as "<Company_name>"
       -  And Customer clicks button with text as "<Amount_button>"
-      -  And Customer fills element as "String content" with name as "<Min_value_edit_box>" with text as "<Search_min_amount>"
-      -  And Customer fills element as "String content" with name as "<Max_value_edit_box>" with text as "<Search_max_amount>"
+      -  And Customer fills element as "String content" with name as "<Min_value_edit_box>" with text as "<Min_Amount_Curr_1>"
+      -  And Customer fills element as "String content" with name as "<Max_value_edit_box>" with text as "<Max_Amount_Curr_1>"
       -  And Customer clicks button with text as "<Search_button>"
       -  And Transaction history in Currency as "<Currency_1>" and value_1 as "<Min_Amount_Curr_1>" value_2 as "<Max_Amount_Curr_1>"
       -  Then Transaction history in Currency as "<Currency_2>" and value_1 as "<Min_Amount_Curr_2>" value_2 as "<Max_Amount_Curr_2>"
       -  Examples:
-      -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  | Search_min_amount |  Search_max_amount |  Search_button | Currency_1 |  Currency_2  |  Min_Amount_Curr_1  | Max_Amount_Curr_1 | Min_Amount_Curr_2  |  Max_Amount_Curr_2  |
-      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20            | Hledat        |   EUR      |   CZK        |           0         |          220      |           0        |        10000        |
+      -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  |   Search_button |    
+      -  Currency_1 |  Currency_2  |  Min_Amount_Curr_1  | Max_Amount_Curr_1 | Min_Amount_Curr_2  |  Max_Amount_Curr_2  |
+      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |       Hledat    |   CZK         -  |   EUR        |           0         |          10000    |           0        |        220          |
       
       
       2.2.2 Invalid Transaction Amount Test
@@ -143,8 +145,7 @@ Applied Test Strategy
       -  Examples:
       -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  |   Search_button |     
       -  Currency_1 |    Min_Amount_Curr_1  | Max_Amount_Curr_1 |                     Error_text                              |  
-      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |       Max value      |       Hledat    |   CZK         - |           1000        |          10       |  Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria. |
-      
+      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |       Max value      |       Hledat    |   CZK         -  |           1000        |          10       |  Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria. |
       
       
  2.3 Automated Testing of Transaction Date
@@ -159,10 +160,12 @@ Applied Test Strategy
 
            ** This test will fail, because returns transactions even when transaction range is not valid              
       
-      -  Feature: Testing of Erste's website with different date ranges
+      -  Feature: transaction date test (out of valid date range)
 
-      -  Scenario Outline: Testing of transaction amounts are within incorrect date range      
-      
+      -  # These tests will fail, because return transactions even when transaction date range is not valid
+      -  # 2 Examples : 2 Tests Cases are executed
+
+      -  Scenario Outline: Testing of transaction amounts out of valid date range
       -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
       -  And Customer clicks button with text as "<Login_button>"
       -  And Customer clicks button with text as "<Confirmation_button>"
@@ -173,9 +176,12 @@ Applied Test Strategy
       -  And Customer clicks button with text as "<Search_button>"
       -  Then Customer should see text as "<Error_text>"
       -  Examples:
-      -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Datum        |  Start_date_edit_box |  End_date_edit_box  | Start_date         |  End_date       |  Search_button |                        Error_text                           |  
-  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    1.1.2022        |    12.12.2021   |     Hledat     | Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria.  | 
-  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    5.5.2023        |    10.5.2023    |     Hledat     | Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria.  | 
+      -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Datum        |  Start_date_edit_box |  End_date_edit_box  | Start_date         |   
+      -  End_date       |  Search_button |                        Error_text                           |  
+      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    1.1.2022        |    
+      -  12.12.2021   |     Hledat     | Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria.  | 
+      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    5.5.2023        |    
+      -  10.5.2023    |     Hledat     | Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria.  |  
          
 2.4 Automated Testing of incorrect company name (not_existing_company)  
 
@@ -185,11 +191,11 @@ Applied Test Strategy
      
       Note : this is a succesful Negative test (error is expected) -> Error message is displayed, the test succeeds
       
-      -  Feature  : User would like to query the transactions related to a non existing company
-      
-      -  Scenario Outline: Testing of transaction with a not existing company          
-      
-      -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"      
+      -  Feature: Testing of transactions of a not existing company
+
+      -  Scenario Outline: Testing of transactions of a not existing company
+  
+      -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
       -  And Customer clicks button with text as "<Login_button>"
       -  And Customer clicks button with text as "<Confirmation_button>"
       -  And Customer fills element as "String content" with name as "<Search_editbox>" with text as "<Company_name>"
@@ -197,10 +203,12 @@ Applied Test Strategy
       -  And Customer fills element as "Value content" with name as "<Start_date_edit_box>" with text as "<Start_date>"
       -  And Customer fills element as "Value content" with name as "<End_date_edit_box>" with text as "<End_date>"
       -  And Customer clicks button with text as "<Search_button>"
-      -  Then Customer should see text as "Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria."
+      -  Then Customer should see text as "<Error_text>" 
       -  Examples:
-      -  |Login_button |  Confirmation_button  | Search_editbox | Company_name         |  Datum        |  Start_date_edit_box |  End_date_edit_box  | Start_date         |  End_date       |  Search_button |   
-      -  |Přihlásit se |   Zpráva přečtena     |     Search     |not_existing_company  |  Datum        |       Start date     |          End date   |    1.1.2022        |    30.1.2022     |       Hledat   | 
+      -  |Login_button |  Confirmation_button  | Search_editbox |       Company_name        |  Datum        |  Start_date_edit_box |  End_date_edit_box  |     
+      -  Start_date     |    End_date       |  Search_button |                                Error_text                       |
+      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     not_existing_company  |  Datum        |       Start date     |         End date    |       
+      -  1.1.2022     |    11.11.2022     |       Hledat   | Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria.      |
       
       
      
