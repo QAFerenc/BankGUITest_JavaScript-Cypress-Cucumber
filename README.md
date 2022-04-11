@@ -85,7 +85,7 @@ Applied Test Strategy
       File : cypress\integration\cucumber-test\TransactionValueTest.feature
       
       Running video : https://www.youtube.com/watch?v=cHpeankp3WY
-      
+     
       Note : user can test it with Czech Krone (CZK) or Euro       
              With this test 2 tests are executed : one for CZK test, the other is for EUR test
       
@@ -145,7 +145,7 @@ Applied Test Strategy
       File : cypress\integration\cucumber-test\NotExistingCompanyName.feature
       
       Running video : https://www.youtube.com/watch?v=CUzPAYGghBo
-      
+     
       Note : this is a succesful Negative test (error is expected) -> Error message is displayed, the test succeeds
       
       -  Feature  : User would like to query the transactions related to a non existing company
