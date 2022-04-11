@@ -19,20 +19,37 @@ Applied Test Strategy
 
 1. Manual Tests : 
 
-    Smoke tests : do not go into details, Automated Tests will do it
+    Smoke tests are preferred : do not go into details, Automated Tests will do it
     
-    1.1   Check that one transaction entry appears correctly on the screen, and texts and values for "Card number", "Original amount",..."Booking             reference" are displayed.
-
-    Test Steps : 
+    General steps at every tests (actual testing starts after these step):
+   
     -  Visit website https://george.csas.cz/?login_hint=7777777777 
     -  Login with pressing button "Přihlásit se"
     -  On the next screen press button "Zpráva přečtena"
-    -  Type "liftago" to Edit box "Co pro Vás mám najít?" and press Search button on the right side 
+    -  Type "liftago" to Edit box "Co pro Vás mám najít?", enter date or amount ranges, and press the "Hledat" search button
+    
+    1.1 Check the general view of the screen after searching for "liftago" transactions :
+    
+        - search box is on the screen
+        - transferred amount button "Částka" is on the screen
+            After pressing button "Částka"
+                - "Min value" is on the screen
+                - "Max value" is on the screen         
+        - transfer date button "Date" is on the screen
+            After pressing button "Date"
+                - "Date from" is on the screen
+                - "Date to" is on the screen
+               
+    
+    1.2   Check that one transaction entry appears correctly on the screen, and texts and values for "Card number", "Original amount",..."Booking             reference" are displayed.
+
+    
     -  Check the content of the first hit for the search, and validate existence of the texts such as Info, Poznámka, Priloha, etc.
+    -  
                  
 2. Automated Tests
 
-2.1  Automated Testing of 1.1 (transaction texts), for all the transaction entries
+2.1  Automated Testing of 1.2 (transaction texts), for all the transaction entries
 
     File : cypress\integration\cucumber-test\TransactionTest.feature
 
