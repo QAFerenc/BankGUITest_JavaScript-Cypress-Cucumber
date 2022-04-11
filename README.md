@@ -49,10 +49,15 @@ Applied Test Strategy
                  
 2. Automated Tests
 
+   Running of the Automated tests : npx cypress run --spec cypress/integration/cucumber-test/<test_file_name> --headed --browser=chrome
+
+
 2.1  Automated Testing of 1.2 (transaction texts), for all the transaction entries
 
-    File : cypress\integration\cucumber-test\TransactionTest.feature
-
+    File : cypress\integration\cucumber-test\TransactionTextTest.feature
+    
+    Running video : https://www.youtube.com/watch?v=mYHozYwyfM8
+    
     Note : the Transaction texts to/under test are all written in one in parameter "Texts", and will be processed in a loop in the code
 
     -  Feature: Testing of Erste's website : transaction texts
@@ -78,6 +83,8 @@ Applied Test Strategy
       It is tested, whether the amounts are in a given range
       
       File : cypress\integration\cucumber-test\TransactionValueTest.feature
+      
+      Running video : https://www.youtube.com/watch?v=cHpeankp3WY
       
       Note : user can test it with Czech Krone (CZK) or Euro       
              With this test 2 tests are executed : one for CZK test, the other is for EUR test
@@ -106,7 +113,9 @@ Applied Test Strategy
  2.3 Automated Testing of Transaction Date
  
     File : cypress\integration\cucumber-test\DateRangeTest.feature
-
+    
+    Running video : https://www.youtube.com/watch?v=Zb9La3qb4fs
+    
     Note : When date "To" is earlier then date "From", transactions are still retrieved ->   possible Bug -> The test fill fail
       
            2 Tests are described in Examples ->   The test runs 2 times
@@ -135,7 +144,9 @@ Applied Test Strategy
 
       File : cypress\integration\cucumber-test\NotExistingCompanyName.feature
       
-      Note : this is a Negative test (error is expected) -> Error message is displayed, the test succeeds
+      Running video : https://www.youtube.com/watch?v=CUzPAYGghBo
+      
+      Note : this is a succesful Negative test (error is expected) -> Error message is displayed, the test succeeds
       
       -  Feature  : User would like to query the transactions related to a non existing company
       
