@@ -62,7 +62,7 @@ Applied Test Strategy
     
     Running video : https://www.youtube.com/watch?v=mYHozYwyfM8
     
-    Note : the Transaction texts to/under test are all written in one in parameter "Texts", and will be processed in a loop in the code
+    Note : the Transaction texts to/under test are all written in one parameter "Texts", and are processed in a loop in the code
 
     -  Feature: Testing of Erste's website : transaction texts
 
@@ -118,7 +118,7 @@ Applied Test Strategy
       
       2.2.2 Invalid Transaction Amount Test
       
-      This is a negative thest, it fails, so it assumes a Bug (the Bug is not a serious one, just the Transacted "From" and "To" amounts are exchanged by the backend)
+      This is a negative test, it fails, so it assumes a Bug (the Bug is not a serious one, just the Transacted "From" and "To" amounts are exchanged by the backend)
       
       File : cypress\integration\cucumber-test\InvalidTransactionAmountTest.feature
       
@@ -171,11 +171,11 @@ Applied Test Strategy
       -  And Customer fills element as "Value content" with name as "<Start_date_edit_box>" with text as "<Start_date>"
       -  And Customer fills element as "Value content" with name as "<End_date_edit_box>" with text as "<End_date>"
       -  And Customer clicks button with text as "<Search_button>"
-      -  Then Customer should see text as "Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria."
+      -  Then Customer should see text as "<Error_text>"
       -  Examples:
-      -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Datum        |  Start_date_edit_box |  End_date_edit_box  | Start_date         |  End_date       |  Search_button |   
-      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    1.1.2022        |    12.12.2021     |       Hledat   | 
-      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    5.5.2022        |    10.5.2022     |       Hledat   | 
+      -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Datum        |  Start_date_edit_box |  End_date_edit_box  | Start_date         |  End_date       |  Search_button |                        Error_text                           |  
+  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    1.1.2022        |    12.12.2021   |     Hledat     | Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria.  | 
+  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Datum        |       Start date     |          End date   |    5.5.2023        |    10.5.2023    |     Hledat     | Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria.  | 
          
 2.4 Automated Testing of incorrect company name (not_existing_company)  
 
