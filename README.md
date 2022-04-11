@@ -80,9 +80,11 @@ Applied Test Strategy
    
 2.2. Automated Testing of Transaction Amuounts
       
+      2.2.1 Positive test
+      
       It is tested, whether the amounts are in a given range
       
-      File : cypress\integration\cucumber-test\TransactionValueTest.feature
+      File : cypress\integration\cucumber-test\TransactionAmountTest.feature
       
       Running video : https://www.youtube.com/watch?v=cHpeankp3WY
      
@@ -108,6 +110,37 @@ Applied Test Strategy
       -  Examples:
       -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  | Search_min_amount |  Search_max_amount |  Search_button | Currency_1 |  Currency_2  |  Min_Amount_Curr_1  | Max_Amount_Curr_1 | Min_Amount_Curr_2  |  Max_Amount_Curr_2  |
       -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |          Max value   |         50        |        20            | Hledat        |   EUR      |   CZK        |           0         |          220      |           0        |        10000        |
+      
+      
+      2.2.2 Invalid Transaction Amount Test
+      
+      This is a negative thest, it fails, so it assumes a Bug (the Bug is not a serious one, just the Transacted "From" and "To" amounts are exchanged by the backend)
+      
+      File : cypress\integration\cucumber-test\InvalidTransactionAmountTest.feature
+      
+      Running video :
+      
+      https://www.youtube.com/watch?v=ilMW103mMQA
+      
+      Feature: Testing of invalid transaction amounts of CZK. This is a Negative test. Error message is expected
+
+
+      -  Scenario Outline: Testing of transactions in an invalid range. CZK values are checked.
+     
+      -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
+      -  And Customer clicks button with text as "<Login_button>"
+      -  And Customer clicks button with text as "<Confirmation_button>"
+      -  And Customer fills element as "String content" with name as "<Search_editbox>" with text as "<Company_name>"
+      -  And Customer clicks button with text as "<Amount_button>"
+      -  And Customer fills element as "String content" with name as "<Min_value_edit_box>" with text as "<Min_Amount_Curr_1>"
+      -  And Customer fills element as "String content" with name as "<Max_value_edit_box>" with text as "<Max_Amount_Curr_1>"
+      -  And Customer clicks button with text as "<Search_button>"
+      -  Then Customer should see text as "<Error_text>"
+      -  Examples:
+      -  |Login_button |  Confirmation_button  | Search_editbox | Company_name |  Amount_button|  Min_value_edit_box |  Max_value_edit_box  |   Search_button |     
+      -  Currency_1 |    Min_Amount_Curr_1  | Max_Amount_Curr_1 |                     Error_text                              |  
+      -  |Přihlásit se |   Zpráva přečtena     |     Search     |     liftago  |  Částka       |       Min value     |       Max value      |       Hledat    |   CZK         - |           1000        |          10       |  Omlouvám se, nic jsem nenašel. Zkuste zadat jiná kritéria. |
+      
       
       
  2.3 Automated Testing of Transaction Date
