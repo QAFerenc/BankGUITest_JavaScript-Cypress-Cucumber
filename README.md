@@ -41,10 +41,15 @@ Applied Test Strategy
                 - "Date to" is on the screen
                    
     1.2   Check that one transaction entry appears correctly on the screen, and texts and values for "Card number", "Original amount",..."Booking             reference" are displayed.
-
-    1.3  Search results for specific Date and Amount is rather better beeing Automated
+ 
+    1.3  Tests of search results for specific Date and Amount are rather better beeing Automated
     
-    1.4  Testing the CZK-EUR conversion for one entry of the search results
+    1.4  Testing the CZK-EUR conversion for one entry of the search results. The converion rate on that day matters.
+
+    1.5  Important to check not only when "Card Owner" (Jiří Spokojený) pays, but when "Liftago" is the sender. This can happen, when "Liftago" sends money for the "Account Owner"
+
+         1.5.1  Jiří Spokojený  ->   Liftago           : money amount is decucted from Jiří Spokojený. Balance decreases. Transaction amount should be marked with "+"
+         1.5.2  Liftago         ->   Jiří Spokojený    : Jiří Spokojený gets money from Liftago. Balance increases. Transaction amount should be marked with "-"
                        
 2. Automated Tests
 
