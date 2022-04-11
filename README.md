@@ -85,7 +85,7 @@ Applied Test Strategy
    
 2.2. Automated Testing of Transaction Amuounts
       
-      2.2.1 Positive test
+      2.2.1. Automated Testing of Transaction Amounts in valid range
       
       It is tested, whether the amounts are in a given range
       
