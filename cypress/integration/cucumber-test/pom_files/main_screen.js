@@ -2,6 +2,8 @@
 let currencyLocators = {"CZK" : ".g-amount-neutral", "EUR" : ".g-amount-faded" }
 
 // in the editBoxes dictionary (key - value pairs) the "values" are part of the locators
+// these values are also in file element_dom_mapping : this is redundancy. It only shows 2 ways of
+// using data
 let editBoxes = {
                    "Search"     : "search-keyword",
                    "Min value"  : "min-amount-input", 
@@ -14,15 +16,18 @@ class main_screen {
   
     pressButtonWithText(button_text)
     {
-        cy.contains(button_text,{ timeout: 100000 }).click();        
+        cy.contains(button_text,{ timeout: 100000 }).click({force: true});        
     }
 
     clickElement(field_name,element_text,text)
     {
+        cy.log(cy.element_dom_mapping[element_text])
+
+        // 2 ways of using locators are shown here, they do the same
         switch(field_name)
         {
-            case "String content" :
-                cy.get('[data-cy="'+editBoxes[element_text]+'"]',{ timeout: 100000 }).type(text, {force: true})
+            case "String content" :                
+                cy.get('[data-cy="'+cy.element_dom_mapping[element_text]+'"]',{ timeout: 100000 }).type(text, {force: true})
             break;
 
             case "Value content"  :
@@ -47,7 +52,7 @@ class main_screen {
 
     checkTextIsDisplayed(text)
     {
-        expect(cy.get('[class=g-status-info-title',{ timeout: 12000}).contains(text))
+        assert(cy.get('[class=g-status-info-title',{ timeout: 12000}).contains(text))
     }
 
     customerReadsTransactions(texts)

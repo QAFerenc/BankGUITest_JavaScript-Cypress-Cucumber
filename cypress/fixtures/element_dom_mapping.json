@@ -1,0 +1,7 @@
+{
+    "Search"     : "search-keyword",
+    "Min value"  : "min-amount-input", 
+    "Max value"  : "max-amount-input",                  
+    "Start date" : "start-field",
+    "End date"   :  "end-field"
+ }

@@ -1,11 +1,24 @@
-import { Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps';
+import { Before, Given, When, Then, And } from 'cypress-cucumber-preprocessor/steps';
 import main_screen from '../cucumber-test/pom_files/main_screen.js';
 
 const mainScreen = new main_screen
 
+//let element_dom_mapping;
+
+Before( function() 
+{
+    // importing the locators from the .json file may not be a good idea, as they are not Test Data.
+    // Test Data are in the .feature files
+    // Using locators from a fixture file is just an example of using the fixture fiile
+    cy.fixture('element_dom_mapping').then(function (element_dom_mapping)  {
+    cy.element_dom_mapping = element_dom_mapping
+})})
+
+
 Given('A webpage as {string}', (page) => {
+    
     cy.visit(page)
-})
+ })
 
 // Simple button click, eg. clicking "Login" button. The Button text matters
 And('Customer clicks button with text as {string}', (text) => {
