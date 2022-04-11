@@ -11,7 +11,7 @@ let editBoxes = {
                    "Start date" : "start-field",
                    "End date"   :  "end-field"
                 }
-
+  
 class main_screen {
   
     pressButtonWithText(button_text)
