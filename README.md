@@ -55,7 +55,7 @@ Applied Test Strategy
 
    Running of the Automated tests : npx cypress run --spec cypress/integration/cucumber-test/<test_file_name> --headed --browser=chrome
    
-   Of course, other browsers can used too, and parameter --headed is just for showing the browser. When --headed is not written, then the browser is not shown.
+   Of course, other browsers can be used too, and parameter --headed is just for showing the browser. When --headed is not written, then the browser is not visible.
 
 
 2.1  Automated Testing of 1.2 (transaction texts), for all the transaction entries
