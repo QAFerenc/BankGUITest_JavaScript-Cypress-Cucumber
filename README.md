@@ -44,7 +44,7 @@ Applied Test Strategy
  
     1.3  Tests of search results for specific Date and Amount are rather better beeing Automated
     
-    1.4  Testing the CZK-EUR conversion for one entry of the search results. The converion rate on that day matters.
+    1.4  Testing the CZK-EUR conversion for one entry of the search results. The conversion rate on that day matters.
 
     1.5  Important to check not only when "Card Owner" (Jiří Spokojený) pays, but when "Liftago" is the sender. This can happen, when "Liftago" sends money for the "Account Owner"
 
@@ -54,6 +54,8 @@ Applied Test Strategy
 2. Automated Tests
 
    Running of the Automated tests : npx cypress run --spec cypress/integration/cucumber-test/<test_file_name> --headed --browser=chrome
+   
+   Of course, other browsers can used too, and parameter --headed is just for showing the browser. When --headed is not written, then the browser is not shown.
 
 
 2.1  Automated Testing of 1.2 (transaction texts), for all the transaction entries
@@ -131,7 +133,7 @@ Applied Test Strategy
       Feature: Testing of invalid transaction amounts of CZK. This is a Negative test. Error message is expected
 
 
-      -  Scenario Outline: Testing of transactions in an invalid range. CZK values are checked.
+      -  Scenario Outline: Testing of transactions in an invalid amont range. CZK values are checked.
      
       -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
       -  And Customer clicks button with text as "<Login_button>"
@@ -162,9 +164,6 @@ Applied Test Strategy
            ** These tests will fail, because return transactions even when transaction range is not valid              
       
       -  Feature: transaction date test (out of valid date range)
-
-      -  # These tests will fail, because return transactions even when transaction date range is not valid
-      -  # 2 Examples : 2 Tests Cases are executed
 
       -  Scenario Outline: Testing of transaction amounts out of valid date range
       -  Given A webpage as "https://george.csas.cz/?login_hint=7777777777"
