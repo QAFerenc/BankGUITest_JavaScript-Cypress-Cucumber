@@ -157,7 +157,7 @@ Applied Test Strategy
     
     Running video : https://www.youtube.com/watch?v=Zb9La3qb4fs
     
-    Note : When date "To" is earlier then date "From", transactions are still retrieved ->   Bug -> The test fill fail
+    Note : When date "To" is earlier then date "From", transactions are still retrieved ->   Bug 
            Transactions are retrieved when at future dates -> Bug
       
            2 Tests are described in Examples ->   The test runs 2 times
