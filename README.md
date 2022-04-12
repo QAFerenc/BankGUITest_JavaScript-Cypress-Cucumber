@@ -96,9 +96,10 @@ Applied Test Strategy
       Running video : https://www.youtube.com/watch?v=cHpeankp3WY
      
       Note : user can test it with Czech Krone (CZK) or Euro       
-             With this test 2 tests are executed : one for CZK test, the other is for EUR test
+             With this test 2 checks are executed : one check for CZK, one check for EUR
       
-             It is possible to create 2 different tests for EUR and CZK, but they are on the same page : it is quicker to test them together
+             It is possible to create 2 different test cases (multiple lines at Examples section) for EUR and CZK, but they are on the same page : it is quicker to   
+             test them together
             
       -  Feature: Testing of Erste's website : transaction amount test
 
